@@ -1,15 +1,13 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import Footer from "../component/footer/footer.component";
+import React, { Fragment } from "react";
+
+import Slider from "../component/Slider/slider.component";
 
 const Home = () => {
-    return (
-        <div>
-            Home
-            <Footer />
-            <Outlet/>
-        </div>
-    )
-}
+  return (
+    <Fragment>
+      <Slider />
+    </Fragment>
+  );
+};
 
 export default Home;

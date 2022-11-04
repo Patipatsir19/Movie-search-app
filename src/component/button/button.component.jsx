@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./button.styles.scss";
 
-const Button = () => {
+const Button = props => {
   return (
     <button
       className={`btn ${props.className}`}
@@ -14,7 +14,7 @@ const Button = () => {
   );
 };
 
-const OutlineButton = () => {
+export const OutlineButton = props => {
   return (
     <Button
       className={`btn-outline ${props.className}`}

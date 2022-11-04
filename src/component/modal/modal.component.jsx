@@ -10,7 +10,7 @@ const Modal = props => {
         setActive(props.active);
     }, [props.active])
 
-    retrun (
+    return (
         <div key={props.id} className={`modal ${active ? "active" : ""}`}>
             {props.children}
         </div>
