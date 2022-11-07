@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import PageRoute from '../component/page-route/page-route.component';
-import MovieGrid from "../component/showlist/showlist.component";
+import Showlist from "../component/showlist/showlist.component";
 
 import { category as cate } from "../API/tmdbApi";
 
@@ -18,7 +18,7 @@ const Catalog = () => {
             </PageRoute>
             <div className="container">
                 <div className="section mb-3">
-                    <MovieGrid category={category}/>
+                    <Showlist category={category}/>
                 </div>
             </div>
         </div>

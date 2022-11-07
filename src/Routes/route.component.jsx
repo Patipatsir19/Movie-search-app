@@ -7,7 +7,7 @@ import Detail from "../page/Detail.component";
 
 const Navigate = () => {
   const element = useRoutes([
-    {path:"/:category/search/:keyword", element: <Catalog/>},
+    {path:"/search/:category/:keyword", element: <Catalog/>},
     {path:"/:category/:id", element: <Detail/>},
     {path:"/:category", element: <Catalog/>},
     {path:"/", element:<Home/>}
