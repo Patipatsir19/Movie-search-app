@@ -3,7 +3,7 @@ import { useRoutes } from "react-router-dom";
 
 import Home from "../page/home.component";
 import Catalog from "../page/catalog.component";
-import Detail from "../page/Detail.component";
+import Detail from "../page/detail/Detail.component";
 
 const Navigate = () => {
   const element = useRoutes([
