@@ -24,7 +24,6 @@ const Slider = () => {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
                 setMovieItems(response.results.slice(1, 4));
-                console.log(response);
             } catch {
                 console.log('error');
             }
@@ -52,7 +51,7 @@ const Slider = () => {
                 }
             </Swiper>
             {
-                movieItems.map((item, i) => <Trailer key={i} item={item}/>)
+                movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
             }
         </div>
     );
@@ -67,7 +66,8 @@ const SliderItems = props => {
     const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
 
     const setModalActive = async () => {
-        const modal = document.querySelector(`#modal ${item.id}`);
+        const modal = document.querySelector(`#modal_${item.id}`);
+        console.log(modal);
 
         const videos = await tmdbApi.getVideos(category.movie, item.id);
 
@@ -91,7 +91,7 @@ const SliderItems = props => {
                     <h2 className="title">{item.title}</h2>
                     <div className="overview">{item.overview}</div>
                     <div className="btns">
-                        <Button onClick={() => navigate.push('/movie/' + item.id)}>
+                        <Button onClick={() => navigate('/movie/' + item.id)}>
                             Watch now
                         </Button>
                         <OutlineButton onClick={setModalActive}>
@@ -107,15 +107,16 @@ const SliderItems = props => {
     )
 }
 
-const Trailer = props => {
+const TrailerModal = props => {
     const item = props.item;
+    console.log(item)
 
     const iframeRef = useRef(null);
 
     const onClose = () => iframeRef.current.setAttribute('src', '');
 
     return (
-        <Modal active={false} id={`modal ${item.id}`}>
+        <Modal active={false} id={`modal_${item.id}`} >
             <ModalContent onClose={onClose}>
                 <iframe ref={iframeRef} width="100%" height="500px" title="trailer"></iframe>
             </ModalContent>

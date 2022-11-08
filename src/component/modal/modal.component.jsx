@@ -11,7 +11,7 @@ const Modal = props => {
     }, [props.active])
 
     return (
-        <div key={props.id} className={`modal ${active ? "active" : ""}`}>
+        <div id={props.id} className={`modal ${active ? "active" : ""}`}>
             {props.children}
         </div>
     )
@@ -23,7 +23,7 @@ Modal.propTypes = {
 }
 
 export const ModalContent = props => {
-    const contentRef = useRef();
+    const contentRef = useRef(null);
 
     const closeModal = () => {
         contentRef.current.parentNode.classList.remove('active');
@@ -33,7 +33,7 @@ export const ModalContent = props => {
         <div ref={contentRef} className="modal_content" >
             {props.children}
             <div className="modal_content_close" onClick={closeModal}>
-                <i className="bx bx-x"></i>
+                <span>X</span>
             </div>
         </div>
     )
